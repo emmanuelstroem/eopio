@@ -27,19 +27,14 @@ jobs:
       - name: extract hugo tarball
         run: |
           tar -xvf hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz
-          
-      - name: symlink hugo
-        run: |
-          ln -s ${{ github.workspace }}/hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit/hugo /usr/local/bin/hugo
-
+    
       - name: check hugo version
         run: |
-          /usr/local/bin/hugo -version
+          ./${{ github.workspace }}/hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit/hugo -version
 
       - name: npm install
         run: |
-          npm install && \
-          npm install postcss-cli
+          npm install
 
       - name: hugo build
-        run: /usr/local/bin/hugo
+        run: ./${{ github.workspace }}/hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit/hugo --minify
