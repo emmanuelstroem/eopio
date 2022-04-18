@@ -17,7 +17,8 @@ jobs:
           # lfs: true
 
       - name: install hugo extended
-        run: sudo snap install hugo --channel=extended
+        run: |
+          sudo snap install hugo --channel=0.97.2/extended --classic
 
       - name: npm install
         run: npm install
