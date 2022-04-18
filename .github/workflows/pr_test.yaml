@@ -34,7 +34,7 @@ jobs:
 
       - name: check hugo version
         run: |
-          hugo -version
+          /usr/local/bin/hugo -version
 
       - name: npm install
         run: |
@@ -42,4 +42,4 @@ jobs:
           npm install postcss-cli
 
       - name: hugo build
-        run: hugo
+        run: /usr/local/bin/hugo
