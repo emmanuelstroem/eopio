@@ -1,0 +1,25 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  docker:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive # Fetch Hugo themes
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          # lfs: true
+
+      - name: install hugo extended
+        run: snap install hugo --channel=extended
+
+      - name: npm install
+        run: npm install
+
+      - name: hugo build
+        run: hugo
