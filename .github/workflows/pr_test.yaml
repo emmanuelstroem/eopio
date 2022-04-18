@@ -18,10 +18,12 @@ jobs:
 
       - name: install hugo extended
         run: |
-          sudo snap install hugo
+          sudo snap install hugo --channel=extended
 
       - name: npm install
-        run: npm install
+        run: |
+          npm install && \
+          npm install postcss-cli
 
       - name: hugo build
         run: hugo
