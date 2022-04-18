@@ -28,6 +28,8 @@ jobs:
         run: |
           tar -xvf hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz
 
+          ls
+
           cp -r hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit hugo
     
       - name: check hugo version
