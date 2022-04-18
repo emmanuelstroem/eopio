@@ -27,14 +27,18 @@ jobs:
       - name: extract hugo tarball
         run: |
           tar -xvf hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz
+
+          cp -r hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit hugo
     
       - name: check hugo version
         run: |
-          ./${{ github.workspace }}/hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit/hugo -version
+          ls hugo/ 
+
+          ./hugo/hugo -version
 
       - name: npm install
         run: |
           npm install
 
       - name: hugo build
-        run: ./${{ github.workspace }}/hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit/hugo --minify
+        run: ./hugo/hugo
