@@ -1,3 +1,4 @@
+name: pr
 on:
   pull_request:
     branches:
@@ -16,7 +17,7 @@ jobs:
           # lfs: true
 
       - name: install hugo extended
-        run: snap install hugo --channel=extended
+        run: sudo snap install hugo --channel=extended
 
       - name: npm install
         run: npm install
