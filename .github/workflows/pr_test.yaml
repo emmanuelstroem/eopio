@@ -30,7 +30,7 @@ jobs:
           
       - name: symlink hugo
         run: |
-          ln -s $PWD/hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit/hugo /usr/local/bin/
+          ln -s ${{GITHUB_WORKSPACE}}/hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit/hugo /usr/bin/
 
       - name: check hugo version
         run: |
