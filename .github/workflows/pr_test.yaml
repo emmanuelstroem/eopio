@@ -27,7 +27,7 @@ jobs:
       
       - name: extract hugo tarball
         run: |
-          tar -xvzf hugo.tar.gz
+          tar -xvf ./hugo.tar.gz -C hugo
           
       - name: symlink hugo
         run: |
