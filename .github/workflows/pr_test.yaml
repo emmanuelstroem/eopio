@@ -18,7 +18,10 @@ jobs:
 
       - name: install hugo extended
         run: |
-          sudo snap install hugo --channel=extended
+          curl -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v$HUGO_VERSION/hugo_extended_$HUGO_VERSION_Linux-64bit.deb && \
+          sudo apt install -y ./hugo.deb
+        env:
+          HUGO_VERSION: "0.97.2"
 
       - name: npm install
         run: |
