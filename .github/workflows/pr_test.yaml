@@ -22,11 +22,17 @@ jobs:
       - name: download hugo extended
         run: |
           curl -O "https://github.com/gohugoio/hugo/releases/download/v${{env.HUGO_VERSION}}/hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz" && \
-          ls
+          file hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz
       
       - name: extract hugo tarball
         run: |
-          tar -xf ./hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz -C hugo
+          tar -xf hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz -C hugo
+
+      - name: unzip tarball
+        run: unzip hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz
+
+      - name: bzip decompress tarball
+        run: bzip2 -d hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz
           
       - name: symlink hugo
         run: |
