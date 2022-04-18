@@ -13,3 +13,12 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# NodeJS
+node_modules/
+
+# Build
+public/
+resources/
+# Hugo
+.hugo_build.lock
