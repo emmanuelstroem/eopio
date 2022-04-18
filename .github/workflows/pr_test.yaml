@@ -21,7 +21,9 @@ jobs:
 
       - name: download hugo extended
         run: |
-          curl -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${{env.HUGO_VERSION}}/hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz"
+          curl -O "https://github.com/gohugoio/hugo/releases/download/v${{env.HUGO_VERSION}}/hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz" && \
+          mv hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz hugo.tar.gz
+          ls
       
       - name: extract hugo tarball
         run: |
