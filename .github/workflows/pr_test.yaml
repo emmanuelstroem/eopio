@@ -30,13 +30,11 @@ jobs:
     
       - name: check hugo version
         run: |
-          ls hugo/ 
-
-          ./hugo/hugo -version
+          ./hugo -version
 
       - name: npm install
         run: |
           npm install
 
       - name: hugo build
-        run: ./hugo/hugo
+        run: ./hugo
