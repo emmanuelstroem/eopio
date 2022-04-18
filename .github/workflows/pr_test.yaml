@@ -4,6 +4,9 @@ on:
     branches:
       - main
 
+env:
+  HUGO_VERSION: "0.97.2"
+
 jobs:
   docker:
     name: build
@@ -16,24 +19,22 @@ jobs:
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
           # lfs: true
 
-      - name: install hugo extended
+      - name: download hugo extended
         run: |
-          curl -O https://github.com/gohugoio/hugo/releases/download/v$HUGO_VERSION/hugo_extended_$HUGO_VERSION_Linux-64bit.tar.gz
-          
-          # Verify it is not corrupted
+          curl -O https://github.com/gohugoio/hugo/releases/download/v$HUGO_VERSION/hugo_extended_$HUGO_VERSION_Linux-64bit.tar.gz && \
           tar tvf hugo_extended_$HUGO_VERSION_Linux-64bit.tar.gz
-          
-          # extract the tarball
+      
+      - name: extract hugo tarball
+        run: |
           tar -xvzf hugo_extended_$HUGO_VERSION_Linux-64bit.tar.gz
           
-          # Link to bin
+      - name: symlink hugo
+        run: |
           ln -s hugo_extended_$HUGO_VERSION_Linux-64bit/hugo /usr/local/bin/
 
-          # Check Hugo Version
+      - name: check hugo version
+        run: |
           hugo -version
-
-        env:
-          HUGO_VERSION: "0.97.2"
 
       - name: npm install
         run: |
