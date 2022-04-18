@@ -26,11 +26,11 @@ jobs:
       
       - name: extract hugo tarball
         run: |
-          tar -xvf hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz -C hugo
+          tar -xvf hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit.tar.gz
           
       - name: symlink hugo
         run: |
-          ln -s $PWD/hugo/hugo /usr/local/bin/
+          ln -s $PWD/hugo_extended_${{env.HUGO_VERSION}}_Linux-64bit/hugo /usr/local/bin/
 
       - name: check hugo version
         run: |
