@@ -12,7 +12,7 @@ enableRobotsTXT = true
 
 enableEmoji = true
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
+theme = ["github.com/google/docsy"]
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
@@ -72,10 +72,12 @@ anchor = "smart"
 [languages]
 [languages.en]
 title = "Tech DIY"
-description = ""
-languageName ="English"
+label = "English"
 # Weight used for sorting.
 weight = 1
+
+[languages.en.params]
+description = ""
 
 [markup]
   [markup.goldmark]
