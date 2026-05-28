@@ -1,5 +1,5 @@
 ---
-date: YYYY-mm-dd
+date: 2026-01-01
 title: "Draft Post Template"
 description: |
   
